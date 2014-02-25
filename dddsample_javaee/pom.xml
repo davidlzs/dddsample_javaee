@@ -16,6 +16,7 @@
         <derby.version>10.8.2.2</derby.version>
         <commonlang.version>3.2.1</commonlang.version>
         <needle.version>2.2</needle.version>
+        <slf4j.version>1.7.6</slf4j.version>
     </properties>
 
     <dependencies>
@@ -58,6 +59,12 @@
         	<groupId>de.akquinet.jbosscc</groupId>
         	<artifactId>jbosscc-needle</artifactId>
         	<version>${needle.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 

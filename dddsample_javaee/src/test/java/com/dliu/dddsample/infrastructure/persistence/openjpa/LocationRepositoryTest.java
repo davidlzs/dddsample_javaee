@@ -50,6 +50,7 @@ public class LocationRepositoryTest {
     public void findAll() {
         List<Location> allLocations = locRepo.findAll();
         assertEquals(2, allLocations.size());
+
     }
 
     @AfterClass
