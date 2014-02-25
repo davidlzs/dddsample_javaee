@@ -120,6 +120,7 @@
                         <include>**/*.java</include>
                     </includes>
                 </configuration>
+                <!--                
                 <executions>
                     <execution>
                         <id>unit-test</id>
@@ -135,6 +136,7 @@
                         </configuration>
                     </execution>
                 </executions>
+                -->
             </plugin>
             <plugin>
                 <groupId>org.apache.openjpa</groupId>
