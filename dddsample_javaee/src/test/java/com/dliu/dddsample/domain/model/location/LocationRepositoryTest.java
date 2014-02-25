@@ -24,7 +24,7 @@ public class LocationRepositoryTest {
     public static void setUp() {
         locRepo.setEntityManager(entityManager);
         new LocationTestdataBuilder(entityManager).withName("HongKong").withUNLocode(new UNLocode("CHHKG")).buildAndSave();
-        new LocationTestdataBuilder(entityManager).withName("ShangHai").withUNLocode(new UNLocode("CHSHA")).buildAndSave();
+        //new LocationTestdataBuilder(entityManager).withName("ShangHai").withUNLocode(new UNLocode("CHSHA")).buildAndSave();
     }
 
     @Test
