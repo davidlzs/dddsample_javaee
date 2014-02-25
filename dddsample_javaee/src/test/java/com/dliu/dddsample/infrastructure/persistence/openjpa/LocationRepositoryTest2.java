@@ -1,5 +1,8 @@
-package com.dliu.dddsample.domain.model.location;
+package com.dliu.dddsample.infrastructure.persistence.openjpa;
 
+import com.dliu.dddsample.domain.model.location.Location;
+import com.dliu.dddsample.domain.model.location.LocationTestdataBuilder;
+import com.dliu.dddsample.domain.model.location.UNLocode;
 import de.akquinet.jbosscc.needle.junit.DatabaseRule;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

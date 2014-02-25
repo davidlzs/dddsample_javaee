@@ -1,9 +1,13 @@
-package com.dliu.dddsample.domain.model.location;
+package com.dliu.dddsample.infrastructure.persistence.openjpa;
+
+import com.dliu.dddsample.domain.model.location.Location;
+import com.dliu.dddsample.domain.model.location.UNLocode;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,5 +28,9 @@ public class LocationRepository {
 
     public void setEntityManager(EntityManager entityManager) {
         this.em = entityManager;
+    }
+
+    public List<Location> findAll() {
+        return  em.createNamedQuery(Location.FIND_ALL, Location.class).getResultList();
     }
 }

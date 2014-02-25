@@ -1,5 +1,8 @@
-package com.dliu.dddsample.domain.model.location;
+package com.dliu.dddsample.infrastructure.persistence.openjpa;
 
+import com.dliu.dddsample.domain.model.location.Location;
+import com.dliu.dddsample.domain.model.location.LocationTestdataBuilder;
+import com.dliu.dddsample.domain.model.location.UNLocode;
 import de.akquinet.jbosscc.needle.junit.DatabaseRule;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -8,6 +11,9 @@ import org.junit.Test;
 
 import javax.persistence.EntityManager;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -24,7 +30,7 @@ public class LocationRepositoryTest {
     public static void setUp() {
         locRepo.setEntityManager(entityManager);
         new LocationTestdataBuilder(entityManager).withName("HongKong").withUNLocode(new UNLocode("CHHKG")).buildAndSave();
-        //new LocationTestdataBuilder(entityManager).withName("ShangHai").withUNLocode(new UNLocode("CHSHA")).buildAndSave();
+        new LocationTestdataBuilder(entityManager).withName("ShangHai").withUNLocode(new UNLocode("CHSHA")).buildAndSave();
     }
 
     @Test
@@ -36,13 +42,18 @@ public class LocationRepositoryTest {
 
     @Test
     public void testFind_notFound() {
-        Location loc = locRepo.find(new UNLocode("CHSHA"));
-        assertNull("Should not find non existing location for : CHSHA", loc);
+        Location loc = locRepo.find(new UNLocode("NOLOC"));
+        assertNull("Should not find non existing location for : NOLOC", loc);
+    }
+
+    @Test
+    public void findAll() {
+        List<Location> allLocations = locRepo.findAll();
+        assertEquals(2, allLocations.size());
     }
 
     @AfterClass
     public static void tearDown() {
         locRepo.setEntityManager(null);
-
     }
 }

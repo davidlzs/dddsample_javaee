@@ -17,10 +17,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "LOCATION")
-@NamedQueries(@NamedQuery(name = Location.FIND_BY_UNLOCODE, query = "SELECT l FROM com.dliu.dddsample.domain.model.location.Location l WHERE l.unLocode.unlocode = :unLocode "))
+@NamedQueries({
+    @NamedQuery(name = Location.FIND_BY_UNLOCODE, query = "SELECT l FROM com.dliu.dddsample.domain.model.location.Location l WHERE l.unLocode.unlocode = :unLocode "),
+    @NamedQuery(name = Location.FIND_ALL, query ="SELECT l FROM com.dliu.dddsample.domain.model.location.Location l")})
 public class Location {
     public static final Location UNKNOWN = new Location(new UNLocode("XXXXX"), "Unknown Location");
     public static final String FIND_BY_UNLOCODE = "com.dliu.dddsample.domain.model.location.Location.FIND_BY_UNLOCODE";
+    public static final String FIND_ALL = "com.dliu.dddsample.domain.model.location.Location.FIND_ALL";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
