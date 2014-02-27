@@ -11,6 +11,8 @@ import java.util.Date;
 public class CarrierMovement {
     private Location departureLocation;
     private Location destinationLocation;
+    private Date departureTime;
+    private Date arrivalTime;
 
     public CarrierMovement(Location departureLocation,
                            Location destinationLocation,
@@ -20,6 +22,8 @@ public class CarrierMovement {
         Validate.notNull(destinationLocation);
         this.departureLocation = departureLocation;
         this.destinationLocation = destinationLocation;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
     }
 
     public Location departureLocation() {
@@ -28,5 +32,13 @@ public class CarrierMovement {
 
     public Location destinationLocation() {
         return destinationLocation;
+    }
+
+    public Date departureTime() {
+        return departureTime;
+    }
+
+    public Date arrivalTime() {
+        return arrivalTime;
     }
 }

@@ -1,5 +1,6 @@
 package com.dliu.dddsample.domain.model.voyage;
 
+import com.dliu.dddsample.test.util.DateTestUtil;
 import org.junit.Test;
 
 import java.util.Date;
@@ -24,8 +25,11 @@ public class CarrierMovementTest {
             fail ("Should not accept null arguments");
         } catch (IllegalArgumentException e) {}
 
-        CarrierMovement cm = new CarrierMovement(BEIJING, SHANGHAI, new Date(), new Date());
+        CarrierMovement cm = new CarrierMovement(BEIJING, SHANGHAI,
+                DateTestUtil.toDate("2011-01-01"), DateTestUtil.toDate("2011-02-01"));
         assertEquals(BEIJING, cm.departureLocation());
         assertEquals(SHANGHAI, cm.destinationLocation());
+        assertEquals(DateTestUtil.toDate("2011-01-01"), cm.departureTime());
+        assertEquals(DateTestUtil.toDate("2011-02-01"), cm.arrivalTime());
     }
 }
