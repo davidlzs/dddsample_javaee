@@ -7,6 +7,9 @@
         <class>com.dliu.dddsample.domain.model.location.Location</class>
         <class>com.dliu.dddsample.domain.model.location.UNLocode</class>
         <class>com.dliu.dddsample.domain.model.voyage.CarrierMovement</class>
+        <class>com.dliu.dddsample.domain.model.voyage.Voyage</class>
+        <class>com.dliu.dddsample.domain.model.voyage.VoyageNumber</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:dddsample;create=true"/>
