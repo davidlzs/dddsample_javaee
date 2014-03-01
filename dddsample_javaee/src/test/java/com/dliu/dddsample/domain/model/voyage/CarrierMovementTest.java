@@ -1,11 +1,11 @@
 package com.dliu.dddsample.domain.model.voyage;
 
-import com.dliu.dddsample.test.util.DateTestUtil;
 import org.junit.Test;
 
 import java.util.Date;
 import static com.dliu.dddsample.domain.model.location.SampleLocation.BEIJING;
 import static com.dliu.dddsample.domain.model.location.SampleLocation.SHANGHAI;
+import static com.dliu.dddsample.test.util.DateTestUtil.toDate;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -26,10 +26,17 @@ public class CarrierMovementTest {
         } catch (IllegalArgumentException e) {}
 
         CarrierMovement cm = new CarrierMovement(BEIJING, SHANGHAI,
-                DateTestUtil.toDate("2011-01-01"), DateTestUtil.toDate("2011-02-01"));
+                toDate("2011-01-01"), toDate("2011-02-01"));
         assertEquals(BEIJING, cm.departureLocation());
-        assertEquals(SHANGHAI, cm.destinationLocation());
-        assertEquals(DateTestUtil.toDate("2011-01-01"), cm.departureTime());
-        assertEquals(DateTestUtil.toDate("2011-02-01"), cm.arrivalTime());
+        assertEquals(SHANGHAI, cm.arrivalLocation());
+        assertEquals(toDate("2011-01-01"), cm.departureTime());
+        assertEquals(toDate("2011-02-01"), cm.arrivalTime());
+    }
+
+    @Test
+    public void testEquals() {
+        CarrierMovement cm1 =  new CarrierMovement(BEIJING, SHANGHAI,toDate("2011-01-01"), toDate("2011-01-02"));
+        CarrierMovement cm2 =  new CarrierMovement(BEIJING, SHANGHAI,toDate("2011-01-01"), toDate("2011-01-02"));
+        assertEquals(cm1, cm2);
     }
 }
