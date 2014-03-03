@@ -27,7 +27,7 @@ public class LocationTestdataBuilder extends AbstractTestdataBuilder<Location> {
 
     @Override
     public Location build() {
-        Location loc = new Location(unLocode, name);
+        Location loc = new Location.Builder().withUnLocode(unLocode).withName(name).build();
         return loc;
     }
 }

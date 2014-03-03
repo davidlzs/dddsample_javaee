@@ -1,8 +1,5 @@
 package com.dliu.dddsample.domain.model.location;
 
-import com.dliu.dddsample.domain.model.location.Location;
-import com.dliu.dddsample.domain.model.location.UNLocode;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -18,18 +15,18 @@ public class LocationTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testConstructor_whenUnLocodeIsNull() {
-        new Location(null, "Beijing");
+        new Location.Builder().withUnLocode(null).withName("Beijing").build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testConstructor_whenNameIsNull() {
-        new Location(new UNLocode("CNBEJ"), null);
+        new Location.Builder().withUnLocode(new UNLocode("CNBEJ")).withName(null).build();
     }
 
     @Test
     //@Ignore
     public void testConstructor_AllGood() {
-        Location loc = new Location(new UNLocode("CNBEJ"), "Beijing");
+        Location loc = new Location.Builder().withUnLocode(new UNLocode("CNBEJ")).withName("Beijing").build();
         assertEquals(new UNLocode("CNBEJ"), loc.getUNLocode());
     }
 }

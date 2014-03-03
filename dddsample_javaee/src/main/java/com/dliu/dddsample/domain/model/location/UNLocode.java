@@ -36,4 +36,17 @@ public class UNLocode {
     public String getUnlocode() {
         return unlocode;
     }
+
+    public static class Builder {
+        private String unloccode;
+
+        public Builder withUnloccode(String unloccode) {
+            this.unloccode = unloccode;
+            return this;
+        }
+
+        public UNLocode build() {
+            return new UNLocode(unloccode);
+        }
+    }
 }

@@ -21,7 +21,7 @@ import javax.persistence.Table;
     @NamedQuery(name = Location.FIND_BY_UNLOCODE, query = "SELECT l FROM com.dliu.dddsample.domain.model.location.Location l WHERE l.unLocode.unlocode = :unLocode "),
     @NamedQuery(name = Location.FIND_ALL, query ="SELECT l FROM com.dliu.dddsample.domain.model.location.Location l")})
 public class Location {
-    public static final Location UNKNOWN = new Location(new UNLocode("XXXXX"), "Unknown Location");
+    public static final Location UNKNOWN = new Builder().withUnLocode(new UNLocode("XXXXX")).withName("Unknown Location").build();
     public static final String FIND_BY_UNLOCODE = "com.dliu.dddsample.domain.model.location.Location.FIND_BY_UNLOCODE";
     public static final String FIND_ALL = "com.dliu.dddsample.domain.model.location.Location.FIND_ALL";
     @Id
@@ -51,5 +51,25 @@ public class Location {
 
     public UNLocode getUNLocode() {
         return unLocode;
+    }
+
+    public static class Builder {
+        private UNLocode unLocode;
+        private String name;
+
+
+        public Builder withUnLocode(UNLocode unLocode) {
+            this.unLocode = unLocode;
+            return this;
+        }
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Location build() {
+            return new Location(unLocode, name);
+        }
     }
 }

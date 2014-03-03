@@ -1,8 +1,6 @@
 package com.dliu.dddsample.domain.model.location;
 
-import com.dliu.dddsample.domain.model.location.Location;
 import com.dliu.persistence.PersistenceTestBase;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.EntityTransaction;
