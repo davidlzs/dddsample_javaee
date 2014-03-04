@@ -95,4 +95,32 @@ public class CarrierMovement {
                 .append(departureTime, that.departureTime)
                 .append(arrivalTime, that.arrivalTime).isEquals());
     }
+
+    public static class Builder {
+        private Location departureLocation;
+        private Location arrivalLocation;
+        private Date departureTime;
+        private Date arrivalTime;
+
+        public Builder withDepartureLocation(Location departureLocation) {
+            this.departureLocation = departureLocation;
+            return this;
+        }
+          public Builder withArrivalLocation(Location arrivalLocation) {
+            this.arrivalLocation = arrivalLocation;
+            return this;
+        }
+          public Builder withDepartureTime(Date departureTime) {
+            this.departureTime = departureTime;
+            return this;
+        }
+          public Builder withArrivalTime(Date arrivalTime) {
+            this.arrivalTime = arrivalTime;
+            return this;
+        }
+
+        public CarrierMovement build() {
+            return new CarrierMovement(departureLocation, arrivalLocation, departureTime, arrivalTime);
+        }
+    }
 }
